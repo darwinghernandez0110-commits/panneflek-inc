@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Panneflek Construction Inc</title>
+
+<style>
+:root{ --main:#220d10; }
+
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f3f4f6;
+}
+
+header{
+  background:var(--main);
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+nav{
+  background:#111;
+  text-align:center;
+  padding:10px;
+}
+
+nav a{
+  color:white;
+  margin:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.section{
+  padding:40px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom:20px;
+}
+
+.btn{
+  padding:12px 22px;
+  background:var(--main);
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.float{
+  position:fixed;
+  right:15px;
+  padding:12px;
+  border-radius:50px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.whatsapp{bottom:20px;background:#25d366;}
+.email{bottom:75px;background:var(--main);}
+
+@media(max-width:700px){
+ nav a{display:block;margin:6px;}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>Panneflek Construction Inc</h1>
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('es')">Español</button>
+</header>
+
+<nav>
+  <a href="#home" id="m1"></a>
+  <a href="#services" id="m2"></a>
+  <a href="#media" id="m4"></a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact" id="m3"></a>
+</nav>
+
+<div class="section" id="home">
+ <div class="card">
+   <h2 id="t1"></h2>
+   <p id="p1"></p>
+   <p><strong>Location:</strong> Philadelphia, Pennsylvania</p>
+ </div>
+</div>
+
+<div class="section" id="services">
+ <div class="card">
+   <h2 id="t2"></h2>
+   <ul>
+     <li>General Contractors</li>
+     <li>Electricians</li>
+     <li>Plumbing</li>
+     <li>Remodeling & Renovation</li>
+     <li>Painting and Finishing</li>
+   </ul>
+ </div>
+</div>
+
+<div class="section" id="media">
+ <div class="card">
+   <h2 id="t4"></h2>
+   <p id="p4"></p>
+   <p>Project photos will be uploaded after publishing.</p>
+ </div>
+</div>
+
+<div class="section" id="testimonials">
+ <div class="card">
+   <h2>Client Testimonials</h2>
+   <p>⭐ Excellent service and very professional – Philadelphia Home Owner</p>
+   <p>⭐ Reliable electricians and plumbers, great communication</p>
+   <p>⭐ Finished on time and clean work</p>
+ </div>
+</div>
+
+<div class="section" id="contact">
+ <div class="card">
+   <h2 id="t3"></h2>
+   <form onsubmit="send(event)">
+     <input placeholder="Name" required><br/>
+     <input placeholder="Email" required><br/>
+     <textarea placeholder="Message"></textarea><br/>
+     <button class="btn" id="b1"></button>
+   </form>
+   <p>Email: Panneflek05@gmail.com</p>
+   <p id="msg"></p>
+ </div>
+</div>
+
+<a class="float whatsapp" href="https://wa.me/19174369138" target="_blank">WhatsApp</a>
+<a class="float email" href="mailto:Panneflek05@gmail.com">Email</a>
+
+<script>
+const text={
+ en:{
+  m1:"Home",m2:"Services",m3:"Contact",m4:"Media",
+  t1:"Professional Construction in Philadelphia",
+  p1:"Panneflek Construction Inc offers high quality building, electrical and plumbing services in Pennsylvania.",
+  t2:"Our Services",
+  t4:"Media Gallery",
+  p4:"Recent projects",
+  t3:"Contact Us",
+  b1:"Send Message"
+ },
+ es:{
+  m1:"Inicio",m2:"Servicios",m3:"Contacto",m4:"Media",
+  t1:"Construcción Profesional en Philadelphia",
+  p1:"Panneflek Construction Inc ofrece servicios de construcción, electricidad y plomería en Pennsylvania.",
+  t2:"Servicios",
+  t4:"Galería",
+  p4:"Proyectos recientes",
+  t3:"Contáctenos",
+  b1:"Enviar Mensaje"
+ }
+};
+
+function setLang(l){
+ const d=text[l];
+ for(let k in d){const e=document.getElementById(k);if(e)e.innerText=d[k];}
+}
+
+function send(e){
+ e.preventDefault();
+ document.getElementById("msg").innerText="Message sent (demo)";
+}
+
+setLang('en');
+</script>
+
+</body>
+</html>
